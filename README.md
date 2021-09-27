@@ -1,7 +1,7 @@
 
 # Weather widget
 
-### Place the code on your page
+### To install the widget, place this code on your page
 ```html
 
 <link href="https://weather.abrikos.pro/css/weather-widget.css" rel="stylesheet">
