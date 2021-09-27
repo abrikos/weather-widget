@@ -1,7 +1,7 @@
 <template>
   <div class="weather-tab">
-    <ul>
-      <li v-for="(city, idx) in cities" :key="idx">
+
+      <div v-for="(city, idx) in cities" :key="idx" class="weather-row">
         <div class="name-temp">
           <span class="city-name">{{ city.name }}</span>
           <span class="city-temp">{{ (city.main.temp - 273.15).toFixed(1) }} °C</span>
@@ -16,8 +16,8 @@
           <strong>{{ city.main.pressure }}mm</strong>
         </div>
 
-      </li>
-    </ul>
+      </div>
+    <div v-show="!cities.length">Please select cities to display the weather. Use gear icon ⚙</div>
 
 
   </div>

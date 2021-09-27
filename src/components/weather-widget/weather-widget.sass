@@ -1,35 +1,40 @@
 #weather-widget
+  .pointer
+    cursor: pointer
   .error
     color: red
   .widget-header
     margin: 5px
     display: flex
-    align-content: center
+    align-items: center
     justify-content: space-between
     .gear
-      cursor: pointer
       font-size: 1.2em
   border: 1px solid silver
   width: 250px
   margin: auto
 
-.options-tab
-  .city-form
-    display: flex
-    justify-content: space-around
-  .options-city-row
-    display: flex
-    justify-content: space-between
-    margin: 2px
-    padding: 5px
-    background-color: silver
+.weather-content
+  padding: 10px
+  .settings-tab
+    .city-form
+      display: flex
+      justify-content: space-between
+      margin-bottom: 10px
+    .options-city-row
+      border-radius: 3px
+      margin-bottom: 10px
+      display: flex
+      justify-content: space-between
+      padding: 5px
+      background-color: silver
+      span
+        display: flex
+        align-items: center
 
-.weather-tab
-  ul
-    list-style-type: none
-    padding: 10px
-    li
-      margin: 15px 0
+  .weather-tab
+    .weather-row
+      margin-bottom: 10px
       box-shadow: 5px 5px 15px silver
       border: 1px solid silver
       padding: 10px

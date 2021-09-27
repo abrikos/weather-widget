@@ -1,5 +1,5 @@
 <template>
-  <div>Wait for loading data from OpenWeather...</div>
+  <div>Wait...</div>
 </template>
 
 <script>
