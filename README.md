@@ -23,6 +23,6 @@ npm run lint
 
 ### Place the code on your page
 ```html
-<link href="https://weather.abrikos.pro/css/app.a5009738.css" rel="preload" as="style">
+<link href="https://weather.abrikos.pro/css/weather-widget.css" rel="preload" as="style">
 <div id="weather-widget"></div>
 <script src="https://weather.abrikos.pro/weather-widget.js"></script>
