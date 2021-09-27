@@ -24,7 +24,7 @@ export default {
   components: {Settings, WeatherTab},
   data() {
     return {
-      optionsEnabled: true,
+      optionsEnabled: false,
       cities: []
     }
   },
