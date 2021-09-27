@@ -2,23 +2,23 @@
   <div class="settings-tab">
     <div class="city-form">
       <input v-model="searchCity" @input="clearError" placeholder="Input city name"/>
-      <button @click="addCity()">Search</button>
+      <button @click="addCity()">Add</button>
     </div>
     <Loader v-show="loading"/>
     <div v-show="error" class="error">{{ error }}</div>
 
-    <div v-for="(item, index) in cities" :key="item.name" class="options-city-row">
+    <div v-for="(item) in cities" :key="item.name" class="options-city-row">
       <span class="options-city-name">{{ item.name }}</span>
-      <span class="pointer" @click="removeCity(index)">🗑</span>
+      <span class="pointer" @click="removeCity(item)">🗑</span>
     </div>
-    <button v-show="this.cities.length" @click="deleteAll">Clear all</button>
+    <button @click="deleteAll">Clear all</button>
   </div>
 
 </template>
 
 <script>
-import axios from "axios";
 import Loader from "@/components/Loader";
+import store from "./store";
 
 
 export default {
@@ -34,42 +34,19 @@ export default {
   },
   methods: {
     deleteAll() {
-      this.cities = [];
-      this.saveCities();
+      store.deleteAll();
     },
     clearError() {
       this.error = false;
     },
-    addCity() {
-      if (!this.cities.map(c => c.name.toLowerCase()).includes(this.searchCity.toLowerCase())) {
-        this.loading = true;
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.searchCity}&appid=b8475c6ee4917ca1020cbca524988ee6`
-        console.log(url)
-        axios
-            .get(url)
-            .then(res => {
-              this.error = false;
-              this.cities.push(res.data);
-              this.searchCity = '';
-              this.saveCities()
-              console.log(res.data);
-              this.loading = false;
-            })
-            .catch(err => {
-              this.error = `${this.searchCity} - not found`;
-              console.log(err)
-              this.loading = false;
-            })
-      } else {
-        this.error = `${this.searchCity} - already exists`;
-      }
+    async addCity() {
+      this.loading = true;
+      const res = await store.addCity(this.searchCity);
+      this.error = res.error;
+      this.loading = false;
     },
-    removeCity(index) {
-      this.cities.splice(index, 1);
-      this.saveCities()
-    },
-    saveCities() {
-      localStorage.cities = JSON.stringify(this.cities);
+    removeCity(city) {
+      store.deleteCity(city)
     }
   }
 }

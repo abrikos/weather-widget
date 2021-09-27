@@ -17,6 +17,7 @@
 import "./weather-widget.sass"
 import WeatherTab from "@/components/weather-widget/WeatherTab";
 import Settings from "./Settings";
+import store from "./store";
 
 
 export default {
@@ -25,22 +26,13 @@ export default {
   data() {
     return {
       optionsEnabled: false,
-      cities: []
+      cities: store.cities
     }
   },
   mounted() {
-    this.init()
   },
   methods: {
-    init() {
-      try {
-        this.cities = JSON.parse(localStorage.cities);
-      } catch (e) {
-        console.log('Parsing error: ', e.message)
-      }
-    },
     toggleOptions() {
-      this.init();
       this.optionsEnabled = !this.optionsEnabled;
     }
   }
