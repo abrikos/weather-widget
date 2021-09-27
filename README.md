@@ -1,4 +1,5 @@
-# untitled
+
+# Weather widget
 
 ## Project setup
 ```
@@ -20,5 +21,8 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Place the code on your page
+```html
+<link href="https://weather.abrikos.pro/css/app.a5009738.css" rel="preload" as="style">
+<div id="weather-widget"></div>
+<script src="https://weather.abrikos.pro/weather-widget.js"></script>
