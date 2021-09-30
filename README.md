@@ -1,6 +1,7 @@
 
 # Weather widget
-
+### Demo
+https://weather.abrikos.pro
 ### To install the widget, place this code on your page
 ```html
 <meta charset="utf-8">
